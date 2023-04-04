@@ -39,5 +39,51 @@ class PasswordManager:
 
     def get_password(self, site):
         return self.password_dict[site]
+    
+def main():
+    password ={
+        "email": "123456",
+        "Twitter": "Haseeb123",
+        "Instagram": "Goku123"
+    }
+    pm = PasswordManager
+    print("How can I help you today? \n(1) Create a new key \n(2) Load an existing key \n (3) Create new password file \n(4) Load existing password file \n (5)add a new password \n(6)Get a password \n (q)Quit program")
+    
+    done = False
 
-            
+    while not done:
+        choice = input("Enter what you would like to do: ")
+        if choice == "1":
+            path = input("Enter path: ")
+            pm.create_key(path)
+    
+        elif choice == "2":
+            path = input("Enter path: ")
+            pm.load_key(path)
+
+        elif choice == '3':
+            path = input ("Enter path: ")
+            pm.create_password_file(path)
+        
+        elif choice == "4":
+            path = input("Enter path: ")
+            pm.load_password_file(path)
+
+        elif choice == "5":
+            site = input("Enter the website: ")
+            password = input("Enter the password: ")
+            pm.add_password(site, password)
+        
+        elif choice =="6":
+            site = input("What website do you want: ")
+            print(f"password for {site} is {pm.get_password(site)}")
+
+        elif choice == "q":
+            done = True
+            print("Thank you for using my program, Have a great day!")
+        
+        else:
+            print("Invalid choice, please try again.")
+        
+if __name__ =="__main__":
+    main()
