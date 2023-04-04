@@ -7,7 +7,7 @@ class PasswordManager:
         self.password_dic={}
 
     def create_key(self, path):
-        self.key = Fernet.generate_key
+        self.key = Fernet.generate_key()
         with open (path, 'wb') as f:
             f.write(self.key)
 
@@ -47,7 +47,7 @@ def main():
         "Instagram": "Goku123"
     }
     pm = PasswordManager
-    print("How can I help you today? \n(1) Create a new key \n(2) Load an existing key \n (3) Create new password file \n(4) Load existing password file \n (5)add a new password \n(6)Get a password \n (q)Quit program")
+    print("How can I help you today? \n(1) Create a new key \n(2) Load an existing key \n(3) Create new password file \n(4) Load existing password file \n(5)add a new password \n(6)Get a password \n(q)Quit program")
     
     done = False
 
